@@ -1,5 +1,7 @@
 import {DeckView} from "@/app/components/DeckView";
 
-export default function DeckPage({params}: {params: {id: string}}) {
-  return <DeckView deckId={params.id} />;
+export default async function DeckPage({params}: {params: Promise<{id: string}>}) {
+  const {id} = await params;
+
+  return <DeckView deckId={id} />;
 }
